@@ -11,7 +11,6 @@ import { AppFirebaseService } from './shared/app-firebase.service';
 export class AppComponent {
   title = 'app works!';
 
-  items = [{}, {}, {}, {}, {}, {}, {}, {}, {}];
 
   foods = [
     {value: 'steak-0', viewValue: 'Steak'},

@@ -13,15 +13,19 @@ import { AppComponent } from './app.component';
 import { AppFirebaseService, firebaseConfig } from './shared/app-firebase.service';
 
 import { AppFirebaseHttpService } from './shared/app-firebase-http.service';
+import { AppHomeComponent } from './pages/app-home/app-home.component';
+import { AppBuyComponent } from './pages/app-buy/app-buy.component';
 
 const routes: Routes = [
-  { path: '', component: AppComponent },
-  { path: 'buy', component: AppComponent }
+  { path: '', component: AppHomeComponent },
+  { path: 'buy', component: AppBuyComponent }
 ];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppHomeComponent,
+    AppBuyComponent
   ],
   imports: [
     BrowserModule,
