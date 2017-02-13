@@ -1,0 +1,127 @@
+<md-card>
+  <form [formGroup]="form" novalidate>
+  <p>
+    <md-input-container class="input-full-width">
+      <input md-input placeholder="Full name" formControlName="fullName" />
+      <md-hint *ngIf="form.controls.fullName.errors && form.controls.fullName.touched" style="color:red">
+        <div [hidden]="!form.controls.fullName.errors?.required">
+          Name is required
+        </div>
+      </md-hint>
+    </md-input-container>
+  </p>
+  <button>Submit</button>
+</form>
+<p>Value: {{ form.value | json }}</p>
+<p>Validation status: {{ form.status }}</p>
+<!--<p>Erros: {{ form.errors }}</p>-->
+
+</md-card>
+<!--<p>{{form.controls.name.controls.first?.errors | json}}</p>-->
+
+<!--<md-card>
+
+  <form novalidate name="buyForm" #buyForm="ngForm">
+    <p>
+      <md-input-container class="input-full-width">
+        <input md-input placeholder="Full name" required [(ngModel)]="userInfo.fullName" name="fullName" #fullName="ngModel" />
+        <md-hint *ngIf="fullName.errors && fullName.touched" style="color:red">
+          <div [hidden]="!fullName.errors.required">
+            Name is required
+          </div>
+        </md-hint>
+      </md-input-container>
+    </p>
+    <p>
+      <md-input-container class="input-full-width">
+        <input md-input placeholder="Mobile" [(ngModel)]="userInfo.mobile" name="mobile" #mobile="ngModel" required pattern="^\+?[0-9][0-9 \-]+[0-9]$"
+          maxlength="16" minlength="10" />
+        <md-hint *ngIf="mobile.errors && mobile.touched" style="color:red">
+          <div [hidden]="!mobile.errors.required">
+            Mobile is required
+          </div>
+          <div [hidden]="!mobile.errors.pattern && !mobile.errors.maxlength && !mobile.errors.minlength">
+            Please enter correct mobile.
+          </div>
+        </md-hint>
+      </md-input-container>
+    </p>
+    <p>
+      <md-input-container class="input-full-width">
+        <input type="email" md-input placeholder="Email (Optional)" [(ngModel)]="userInfo.email" name="email" #email="ngModel" pattern="^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$"
+        />
+        <md-hint *ngIf="email.errors && email.touched" style="color:red">
+          <div [hidden]="!email.errors.pattern">
+            Please enter correct email.
+          </div>
+        </md-hint>
+      </md-input-container>
+    </p>
+
+    <p>
+      <md-input-container class="input-full-width">
+        <textarea md-input placeholder="Address" [(ngModel)]="userInfo.address" name="address" #address="ngModel" required minlength="10"></textarea>
+        <md-hint *ngIf="address.errors && address.touched" style="color:red">
+          <div [hidden]="!address.errors.required">
+            Address is required
+          </div>
+          <div [hidden]="!address.errors.minlength">
+            Please enter correct address.
+          </div>
+        </md-hint>
+      </md-input-container>
+      <md-input-container class="input-full-width">
+        <textarea md-input placeholder="Address 2"></textarea>
+      </md-input-container>
+    </p>
+
+    <table class="input-full-width" cellspacing="0">
+      <tr>
+        <td style="width:30%">
+          <md-select placeholder="City" [(ngModel)]="userInfo.city" name="city" #city="ngModel" required>
+            <md-option value="Ahmedabad">
+              Ahmedabad
+            </md-option>
+          </md-select>
+          <md-hint *ngIf="city.errors && city.touched" style="color:red; position: relative;">
+            <div [hidden]="!city.errors.required">
+              City is required
+            </div>
+          </md-hint>
+        </td>
+        <td style="width:30%">
+          <md-select placeholder="State" [(ngModel)]="userInfo.state" name="state" #state="ngModel" required>
+            <md-option value="Gujrat">
+              Gujrat
+            </md-option>
+          </md-select>
+          <md-hint *ngIf="state.errors && state.touched" style="color:red; position: relative;">
+            <div [hidden]="!state.errors.required">
+              State is required
+            </div>
+          </md-hint>
+        </td>
+        <td style="width:30%">
+          <md-input-container class="input-full-width">
+            <input md-input minlength="6" maxlength="6" placeholder="Postal Code" [(ngModel)]="userInfo.pincode" name="pincode" #pincode="ngModel" required>
+            <md-hint *ngIf="pincode.errors && pincode.touched" style="color:red">
+              <div [hidden]="!pincode.errors.required">
+                Pincode is required
+              </div>
+              <div [hidden]="!pincode.errors.minlength && !pincode.errors.maxlength">
+                Please enter correct pincode.
+              </div>
+            </md-hint>
+          </md-input-container>
+        </td>
+      </tr>
+    </table>
+
+    <br/>
+    <p style="float: right">
+      <button md-button md-raised-button [disabled]="buyForm.invalid">Buy</button>
+    </p>
+
+    <div style="clear: both"></div>
+  </form>
+</md-card>-->

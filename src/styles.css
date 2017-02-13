@@ -9,3 +9,7 @@ html, body {
 body {
     margin: 0px;
 }
+
+.input-full-width {
+  width: 100%;
+}
