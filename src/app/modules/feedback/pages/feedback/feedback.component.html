@@ -1,0 +1,50 @@
+<md-card>
+
+  <form novalidate name="feedbackForm" #feedbackForm="ngForm">
+    <p>
+      <md-input-container class="input-full-width">
+        <input md-input placeholder="Full name" required [(ngModel)]="userInfo.fullName" name="fullName" #fullName="ngModel" />
+        <md-hint *ngIf="fullName.errors && fullName.touched" style="color:red">
+          <div [hidden]="!fullName.errors.required">
+            Name is required
+          </div>
+        </md-hint>
+      </md-input-container>
+    </p>
+    <p>
+      <md-input-container class="input-full-width">
+        <input md-input placeholder="Mobile" [(ngModel)]="userInfo.mobile" name="mobile" #mobile="ngModel" required pattern="^\+?[0-9][0-9 \-]+[0-9]$"
+          maxlength="16" minlength="10" />
+        <md-hint *ngIf="mobile.errors && mobile.touched" style="color:red">
+          <div [hidden]="!mobile.errors.required">
+            Mobile is required
+          </div>
+          <div [hidden]="!mobile.errors.pattern && !mobile.errors.maxlength && !mobile.errors.minlength">
+            Please enter correct mobile.
+          </div>
+        </md-hint>
+      </md-input-container>
+    </p>
+    <p>
+      <md-input-container class="input-full-width">
+        <input type="email" md-input placeholder="Email" [(ngModel)]="userInfo.email" name="email" #email="ngModel" required pattern="^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$"
+        />
+        <md-hint *ngIf="email.errors && email.touched" style="color:red">
+          <div [hidden]="!email.errors.required">
+            Email is required
+          </div>
+          <div [hidden]="!email.errors.pattern">
+            Please enter correct email.
+          </div>
+        </md-hint>
+      </md-input-container>
+    </p>
+
+    <br/>
+    <p style="float: right">
+      <button md-button md-raised-button [disabled]="feedbackForm.invalid" (click)="sendFeedback()">Send Feedback</button>
+    </p>
+
+    <div style="clear: both"></div>
+  </form>
+</md-card>

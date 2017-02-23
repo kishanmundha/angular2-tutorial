@@ -1,15 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface UserInfo {
-  fullName: string;
-  mobile: string;
-  email: string;
-  address: string;
-  address2: string;
-  city: string;
-  state: string;
-  pincode: string;
-}
+import { UserInfo } from '../../shared/interfaces';
 
 @Component({
   selector: 'app-app-buy',

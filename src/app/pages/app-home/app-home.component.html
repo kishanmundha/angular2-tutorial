@@ -1,15 +1,35 @@
+<md-card>
+  <md-card-content>
+    <div style="float: right">
+      <md-input-container>
+        <input md-input placeholder="Search" [(ngModel)]="search" />
+      </md-input-container>
+      <md-select id="sort" placeholder="Sort by" [(ngModel)]="sort">
+        <md-option value="title">
+          Name
+        </md-option>
+        <md-option value="price">
+          Price - Low to high
+        </md-option>
+        <md-option value="-price">
+          Price - High to low
+        </md-option>
+      </md-select>
+    </div>
+    <div style="clear: both"></div>
+  </md-card-content>
+</md-card>
 <div class="flex-container" fxLayout="row" fxLayoutWrap fxLayout.xs="column">
-  <div class="flex-item" fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let item of items" [style.padding.px]="5">
+  <div class="flex-item" fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33.33%" *ngFor="let item of items | filter:'title':search | orderBy:sort" [style.padding.px]="5">
     <md-card class="example-card">
+      <img md-card-image [src]="item.image">
       <md-card-header>
-        <md-card-title>Shiba Inu</md-card-title>
-        <md-card-subtitle>Dog Breed</md-card-subtitle>
-      </md-card-header> 
-      <img md-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+        <md-card-title>{{item.title}}</md-card-title>
+        <md-card-subtitle>{{item.description}}</md-card-subtitle>
+      </md-card-header>
       <md-card-content>
         <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes
-          very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
+          <del *ngIf="item.displayPrice && item.displayPrice !== item.price">{{item.displayPrice | currency:'INR':true}}</del> {{item.price | currency:'INR':true}}
         </p>
       </md-card-content>
       <md-card-actions>

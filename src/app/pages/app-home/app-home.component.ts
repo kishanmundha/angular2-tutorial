@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppHomeComponent implements OnInit {
 
-  items = [{}, {}, {}, {}, {}, {}, {}, {}, {}];
+  items = [];
+  sort = 'title';
 
-  constructor() { }
+  constructor() {
+    for (let i = 0; i < 10; i++) {
+      this.items.push({
+        title: 'Title' + (i + 1),
+        description: 'Descript line',
+        image: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
+        price: 24 + (i % 2),
+        displayPrice: (i % 2 === 0 ? 30 : 24)
+      });
+    }
+  }
 
   ngOnInit() {
   }

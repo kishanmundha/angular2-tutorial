@@ -15,20 +15,20 @@ import { AppFirebaseService, firebaseConfig } from './shared/app-firebase.servic
 import { AppFirebaseHttpService } from './shared/app-firebase-http.service';
 import { AppHomeComponent } from './pages/app-home/app-home.component';
 import { AppBuyComponent } from './pages/app-buy/app-buy.component';
-import { AppBuy2Component } from './pages/app-buy2/app-buy2.component';
+// import { AppBuy2Component } from './pages/app-buy2/app-buy2.component';
 
-const routes: Routes = [
-  { path: '', component: AppHomeComponent },
-  { path: 'buy', component: AppBuyComponent },
-  { path: 'buy2', component: AppBuy2Component }
-];
+import { FilterPipe, OrderByPipe } from './shared/pipes';
+
+import { routes } from './app.routing';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppHomeComponent,
     AppBuyComponent,
-    AppBuy2Component
+    // AppBuy2Component,
+    FilterPipe,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,
