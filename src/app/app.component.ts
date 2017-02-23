@@ -46,9 +46,9 @@ export class AppComponent {
   constructor(firebase: AppFirebaseService, http: Http) {
     // firebase.test();
 
-    http.get('https://api.github.com/repos/kishanmundha/DocProject/releases/latest')
-      .map(res => res.json())
-      .subscribe(res => console.log(res));
+    //http.get('https://api.github.com/repos/kishanmundha/DocProject/releases/latest')
+    //  .map(res => res.json())
+    //  .subscribe(res => console.log(res));
 
     /** test x */
     const x: number = 10;

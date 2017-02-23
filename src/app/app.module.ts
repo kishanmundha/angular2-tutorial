@@ -6,11 +6,15 @@ import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule, Routes } from '@angular/router';
 
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './shared/services/in-memory-data.service';
+
 import { AngularFireModule } from 'angularfire2';
 
 import { AppComponent } from './app.component';
 
 import { AppFirebaseService, firebaseConfig } from './shared/app-firebase.service';
+import { AppProductService } from './shared/services/app-product.service';
 
 import { AppFirebaseHttpService } from './shared/app-firebase-http.service';
 import { AppHomeComponent } from './pages/app-home/app-home.component';
@@ -38,9 +42,11 @@ import { routes } from './app.routing';
     AngularFireModule.initializeApp(firebaseConfig),
     MaterialModule.forRoot(),
     FlexLayoutModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1500 })
   ],
-  providers: [AppFirebaseService, {provide: Http, useClass: AppFirebaseHttpService, deps: [XHRBackend, RequestOptions]}],
+  // providers: [AppFirebaseService, {provide: Http, useClass: AppFirebaseHttpService, deps: [XHRBackend, RequestOptions]}],
+  providers: [AppFirebaseService, AppProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

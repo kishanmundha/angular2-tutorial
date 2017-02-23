@@ -1,4 +1,4 @@
-<md-card>
+<md-card style="margin-bottom:10px;">
   <md-card-content>
     <div style="float: right">
       <md-input-container>
@@ -19,8 +19,16 @@
     <div style="clear: both"></div>
   </md-card-content>
 </md-card>
-<div class="flex-container" fxLayout="row" fxLayoutWrap fxLayout.xs="column">
-  <div class="flex-item" fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33.33%" *ngFor="let item of items | filter:'title':search | orderBy:sort" [style.padding.px]="5">
+<md-card *ngIf="!itemLoaded">
+  <md-card-content>
+    <md-progress-circle mode="indeterminate">
+    </md-progress-circle>
+  </md-card-content>
+</md-card>
+<div *ngIf="itemLoaded" class="flex-container" fxLayout="row" fxLayoutWrap fxLayout.xs="column">
+  <div class="flex-item" fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33.33%" *ngFor="let item of items | filter:'title':search | orderBy:sort"
+    [style.padding.px]="5"
+    [@productCardIn]="'in'">
     <md-card class="example-card">
       <img md-card-image [src]="item.image">
       <md-card-header>
@@ -36,5 +44,5 @@
         <a md-button routerLink="buy">BUY NOW</a>
       </md-card-actions>
     </md-card>
-  </div>
+</div>
 </div>

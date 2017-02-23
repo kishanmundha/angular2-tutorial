@@ -9,3 +9,7 @@ md-card-header >>> .md-card-header-text {
 #sort {
     min-width: 150px;
 }
+
+md-progress-circle {
+    margin: 0px auto;
+}
