@@ -19,20 +19,20 @@ import { AppProductService } from './shared/services/app-product.service';
 import { AppFirebaseHttpService } from './shared/app-firebase-http.service';
 import { AppHomeComponent } from './pages/app-home/app-home.component';
 import { AppBuyComponent } from './pages/app-buy/app-buy.component';
-// import { AppBuy2Component } from './pages/app-buy2/app-buy2.component';
 
 import { FilterPipe, OrderByPipe } from './shared/pipes';
 
 import { routes } from './app.routing';
+import { AppNotFoundComponent } from './pages/app-not-found/app-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppHomeComponent,
     AppBuyComponent,
-    // AppBuy2Component,
     FilterPipe,
-    OrderByPipe
+    OrderByPipe,
+    AppNotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, trigger, state, animate, transition, style } from '@angular/core';
 import { Http } from '@angular/http';
 
 import { AppFirebaseService } from './shared/app-firebase.service';
@@ -6,10 +6,23 @@ import { AppFirebaseService } from './shared/app-firebase.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations: [
+    trigger('cartIn', [
+    state('in', style({ opacity: 1, 'padding-right': '0px' })),
+    transition('void => *', [
+      style({opacity: 0, 'padding-right': '20px'}),
+      animate(200)
+    ]),
+    transition('* => void', [
+      animate(200, style({opacity: 0, 'padding-right': '20px'}))
+    ])
+  ])
+  ]
 })
 export class AppComponent {
   title = 'app works!';
+  cartItemCount = 0;
 
 
   foods = [
@@ -52,5 +65,9 @@ export class AppComponent {
 
     /** test x */
     const x: number = 10;
+
+    //setTimeout(function() {
+      this.cartItemCount = 4;
+    //}, 500);
   }
 }
