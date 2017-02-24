@@ -16,7 +16,7 @@ export class InMemoryDataService {
         const products = [
             {
                 id: 1,
-                title: 'Sendwich',
+                name: 'Sendwich',
                 description: 'Descript line',
                 image: 'https://theambrosia.com/476/veg-sandwich.jpg',
                 price: 20,
@@ -24,7 +24,7 @@ export class InMemoryDataService {
             },
             {
                 id: 2,
-                title: 'Pizza',
+                name: 'Pizza',
                 description: 'Descript line',
                 image: 'http://www.dellapizza.com.br/imagens/dellacalabresa.jpg',
                 price: 90,
@@ -32,7 +32,7 @@ export class InMemoryDataService {
             },
             {
                 id: 3,
-                title: 'Burger',
+                name: 'Burger',
                 description: '',
                 image: 'https://theambrosia.com/451/classic-veg-burger.jpg',
                 price: 33,
@@ -40,7 +40,7 @@ export class InMemoryDataService {
             },
             {
                 Id: 4,
-                title: 'French fries',
+                name: 'French fries',
                 description: '',
                 image: 'http://www.johnnyrocketsnigeria.com/Starters/American-Fries.png',
                 price: 66,

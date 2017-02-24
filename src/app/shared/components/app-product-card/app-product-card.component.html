@@ -1,0 +1,15 @@
+<md-card>
+  <img md-card-image [src]="product.image">
+  <md-card-header>
+    <md-card-title>{{product.name}}</md-card-title>
+    <md-card-subtitle>{{product.description}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <p>
+      <del *ngIf="product.displayPrice && product.displayPrice !== product.price">{{product.displayPrice | currency:'INR':true}}</del> {{product.price | currency:'INR':true}}
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <a md-button (click)="addToCart(product.id, product.name)">Add to cart</a>
+  </md-card-actions>
+</md-card>

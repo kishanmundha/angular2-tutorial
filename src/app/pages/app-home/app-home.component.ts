@@ -21,9 +21,9 @@ import { AppProductService } from '../../shared/services/app-product.service';
 })
 export class AppHomeComponent implements OnInit {
 
-  itemLoaded = false;
-  items = [];
-  sort = 'title';
+  productsLoaded = false;
+  products = [];
+  sort = 'name';
 
   constructor(private appProductService: AppProductService, ) {
     /*for (let i = 0; i < 10; i++) {
@@ -38,7 +38,7 @@ export class AppHomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.appProductService.getProducts().then(products => { this.items = products; this.itemLoaded = true; });
+    this.appProductService.getProducts().then(products => { this.products = products; this.productsLoaded = true; });
   }
 
 }

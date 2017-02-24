@@ -1,12 +1,14 @@
 <md-toolbar color="primary">
   <div style="flex: auto">
     <a md-button routerLink="./"><span>Demo app</span></a>
-    <a md-button routerLink="feedback">feedback</a>
+    <a md-button routerLink="feedback">Feedback</a>
   </div>
-  <div style="width:3rem" *ngIf="cartItemCount" [@cartIn]="'in'">
-    <i style="float:right" class="material-icons">add_shopping_cart</i>
-    {{cartItemCount}}
-  </div>
+  <a md-button style="width:3rem; padding-right: 10px;" [@cartIn]="'in'" routerLink="cart" *ngIf="cartItemCount">
+    <div>
+      <i style="float:right; margin-top: 5px;" class="material-icons">add_shopping_cart</i>
+      <span>{{cartItemCount}}</span>
+    </div>
+  </a>
 </md-toolbar>
 
 <router-outlet></router-outlet>

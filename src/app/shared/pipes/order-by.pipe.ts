@@ -18,7 +18,7 @@ export class OrderByPipe implements PipeTransform {
             if (typeof value[field] === 'string' || value[field] instanceof String) {
                 return [...value].sort((a, b) => -b[field].localeCompare(a[field]));
             }
-            return [...value].sort((a, b) => a[field] - b[field]);
+            return [...value].sort((a, b) => a[field] > b[field] ? 1 : a[field] < b[field] ? -1 : 0);
         }
     }
 }

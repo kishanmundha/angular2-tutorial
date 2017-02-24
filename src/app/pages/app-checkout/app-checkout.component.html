@@ -1,6 +1,6 @@
 <md-card>
 
-  <form novalidate name="buyForm" #buyForm="ngForm">
+  <form novalidate name="buyForm" #buyForm="ngForm" (submit)="checkout()">
     <p>
       <md-input-container class="input-full-width">
         <input md-input placeholder="Full name" required [(ngModel)]="userInfo.fullName" name="fullName" #fullName="ngModel" />
@@ -98,7 +98,7 @@
 
     <br/>
     <p style="float: right">
-      <button md-button md-raised-button [disabled]="buyForm.invalid">Buy</button>
+      <button md-button md-raised-button [disabled]="buyForm.invalid">Checkout</button>
     </p>
 
     <div style="clear: both"></div>

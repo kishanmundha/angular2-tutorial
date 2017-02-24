@@ -40,6 +40,17 @@
       </md-input-container>
     </p>
 
+    <p>
+      <md-input-container class="input-full-width">
+        <textarea md-input placeholder="Feedback" [(ngModel)]="userInfo.feedback" name="feedback" #feedback="ngModel" required></textarea>
+        <md-hint *ngIf="feedback.errors && feedback.touched" style="color:red">
+          <div [hidden]="!feedback.errors.required">
+            Feedback is required
+          </div>
+        </md-hint>
+      </md-input-container>
+    </p>
+
     <br/>
     <p style="float: right">
       <button md-button md-raised-button [disabled]="feedbackForm.invalid" (click)="sendFeedback()">Send Feedback</button>

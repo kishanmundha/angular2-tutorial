@@ -5,7 +5,7 @@
         <input md-input placeholder="Search" [(ngModel)]="search" />
       </md-input-container>
       <md-select id="sort" placeholder="Sort by" [(ngModel)]="sort">
-        <md-option value="title">
+        <md-option value="name">
           Name
         </md-option>
         <md-option value="price">
@@ -19,30 +19,15 @@
     <div style="clear: both"></div>
   </md-card-content>
 </md-card>
-<md-card *ngIf="!itemLoaded">
+<md-card *ngIf="!productsLoaded">
   <md-card-content>
     <md-progress-circle mode="indeterminate">
     </md-progress-circle>
   </md-card-content>
 </md-card>
-<div *ngIf="itemLoaded" class="flex-container" fxLayout="row" fxLayoutWrap fxLayout.xs="column">
-  <div class="flex-item" fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33.33%" *ngFor="let item of items | filter:'title':search | orderBy:sort"
-    [style.padding.px]="5"
-    [@productCardIn]="'in'">
-    <md-card class="example-card">
-      <img md-card-image [src]="item.image">
-      <md-card-header>
-        <md-card-title>{{item.title}}</md-card-title>
-        <md-card-subtitle>{{item.description}}</md-card-subtitle>
-      </md-card-header>
-      <md-card-content>
-        <p>
-          <del *ngIf="item.displayPrice && item.displayPrice !== item.price">{{item.displayPrice | currency:'INR':true}}</del> {{item.price | currency:'INR':true}}
-        </p>
-      </md-card-content>
-      <md-card-actions>
-        <a md-button routerLink="buy">BUY NOW</a>
-      </md-card-actions>
-    </md-card>
+<div *ngIf="productsLoaded" class="flex-container" fxLayout="row" fxLayoutWrap fxLayout.xs="column">
+  <div class="flex-item" fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33.33%" *ngFor="let product of products | filter:'title':search | orderBy:sort"
+    [style.padding.px]="5" [@productCardIn]="'in'">
+    <app-product-card [product]="product"></app-product-card>
 </div>
 </div>

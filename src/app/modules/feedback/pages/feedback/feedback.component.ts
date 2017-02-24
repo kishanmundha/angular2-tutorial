@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserInfo } from '../../../../shared/interfaces';
+import { UserInfoFeedback } from '../../../../shared/interfaces';
 
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class FeedbackComponent implements OnInit {
 
-  userInfo: UserInfo = <UserInfo>{ fullName: 'test', mobile: '334345453453', email: 'ki@fd' };
+  userInfo: UserInfoFeedback = <UserInfoFeedback>{ };
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 

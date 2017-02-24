@@ -13,26 +13,30 @@ import { AngularFireModule } from 'angularfire2';
 
 import { AppComponent } from './app.component';
 
-import { AppFirebaseService, firebaseConfig } from './shared/app-firebase.service';
-import { AppProductService } from './shared/services/app-product.service';
+import { AppProductService, AppFirebaseHttpService, AppFirebaseService, firebaseConfig } from './shared/services';
 
-import { AppFirebaseHttpService } from './shared/app-firebase-http.service';
 import { AppHomeComponent } from './pages/app-home/app-home.component';
-import { AppBuyComponent } from './pages/app-buy/app-buy.component';
+import { AppCheckoutComponent } from './pages/app-checkout/app-checkout.component';
 
 import { FilterPipe, OrderByPipe } from './shared/pipes';
 
 import { routes } from './app.routing';
 import { AppNotFoundComponent } from './pages/app-not-found/app-not-found.component';
+import { AppProductCardComponent } from './shared/components/app-product-card/app-product-card.component';
+import { AppCartComponent } from './pages/app-cart/app-cart.component';
+import { AppCheckoutSuccessComponent } from './pages/app-checkout-success/app-checkout-success.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppHomeComponent,
-    AppBuyComponent,
+    AppCheckoutComponent,
     FilterPipe,
     OrderByPipe,
-    AppNotFoundComponent
+    AppNotFoundComponent,
+    AppProductCardComponent,
+    AppCartComponent,
+    AppCheckoutSuccessComponent
   ],
   imports: [
     BrowserModule,
