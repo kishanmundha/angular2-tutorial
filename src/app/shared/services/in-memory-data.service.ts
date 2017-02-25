@@ -5,7 +5,7 @@ export class InMemoryDataService {
                 id: 1,
                 name: 'Sandwich',
                 description: 'Descript line',
-                image: 'https://theambrosia.com/476/veg-sandwich.jpg',
+                image: 'assets/img/products/sandwich.jpg',
                 price: 20,
                 displayPrice: 30
             },
@@ -13,7 +13,7 @@ export class InMemoryDataService {
                 id: 2,
                 name: 'Pizza',
                 description: 'Descript line',
-                image: 'http://www.dellapizza.com.br/imagens/dellacalabresa.jpg',
+                image: 'assets/img/products/pizza.jpg',
                 price: 90,
                 displayPrice: 130
             },
@@ -21,7 +21,7 @@ export class InMemoryDataService {
                 id: 3,
                 name: 'Burger',
                 description: '',
-                image: 'https://theambrosia.com/451/classic-veg-burger.jpg',
+                image: 'assets/img/products/burger.jpg',
                 price: 33,
                 displayPrice: 33
             },
@@ -29,9 +29,17 @@ export class InMemoryDataService {
                 Id: 4,
                 name: 'French fries',
                 description: '',
-                image: 'http://www.johnnyrocketsnigeria.com/Starters/American-Fries.png',
+                image: 'assets/img/products/french-fries.jpg',
                 price: 66,
                 displayPrice: 66
+            },
+            {
+                id: 5,
+                name: 'Dahi Vada',
+                description: '',
+                image: 'assets/img/products/dahi-vada.jpg',
+                price: 40,
+                displayPrice: 40
             }
         ];
 
