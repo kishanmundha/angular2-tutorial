@@ -3,26 +3,14 @@
 </md-toolbar>
 
 <div fxLayout="row" fxLayoutWrap fxLayout.xs="column">
-  <div class="flex-item" fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33.33%">
+  <div class="flex-item" fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33.33%" *ngFor="let product of products">
     <md-card>
       <md-card-header>
-        <md-card-title>Burger</md-card-title>
+        <md-card-title>{{product.name}}</md-card-title>
       </md-card-header>
       <md-card-content>
         <p>
-          33
-        </p>
-      </md-card-content>
-    </md-card>
-  </div>
-  <div class="flex-item" fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33.33%">
-    <md-card>
-      <md-card-header>
-        <md-card-title>French Fries</md-card-title>
-      </md-card-header>
-      <md-card-content>
-        <p>
-          66
+          {{product.price | currency:'INR':true}}
         </p>
       </md-card-content>
     </md-card>
