@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+// Import and customize material theme
+@import '~@angular/material/core/theming/all-theme';
+
+@include md-core();
+
+$candy-app-primary: md-palette($md-blue-grey);
+$candy-app-accent:  md-palette($md-blue-grey, A200, A100, A400);
+$candy-app-warn:    md-palette($md-red);
+
+$candy-app-theme: md-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+
+@include angular-material-theme($candy-app-theme);
+
+$primary: map-get($candy-app-theme, primary);
+
+// Custom styles
+
+html, body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    background-color: #ededeb;
+}
+
+body {
+    margin: 0px;
+}
