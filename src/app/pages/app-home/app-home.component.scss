@@ -1,3 +1,15 @@
 .flex-item {
     padding: 5px;
 }
+
+#filter-card {
+    margin-bottom: 10px;
+}
+
+#sort {
+    min-width: 150px;
+}
+
+md-input-container /deep/ .md-input-underline {
+    margin-top: 6px;
+}
