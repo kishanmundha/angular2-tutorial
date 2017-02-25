@@ -1,30 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
+// In memeory reset Api
+// We use this for demo purpose only
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './shared/services/in-memory-data.service';
 
-import { AngularFireModule } from 'angularfire2';
+// services
+import { AppProductService, InMemoryDataService } from './shared/services';
 
-import { AppComponent } from './app.component';
-
-import { AppProductService, AppFirebaseHttpService, AppFirebaseService, firebaseConfig } from './shared/services';
-
-import { AppHomeComponent } from './pages/app-home/app-home.component';
-import { AppCheckoutComponent } from './pages/app-checkout/app-checkout.component';
-
+// Pipes
 import { FilterPipe, OrderByPipe } from './shared/pipes';
 
-import { routes } from './app.routing';
+// Components
+import { AppComponent } from './app.component';
+import { AppHomeComponent } from './pages/app-home/app-home.component';
+import { AppCheckoutComponent } from './pages/app-checkout/app-checkout.component';
 import { AppNotFoundComponent } from './pages/app-not-found/app-not-found.component';
 import { AppProductCardComponent } from './shared/components/app-product-card/app-product-card.component';
 import { AppCartComponent } from './pages/app-cart/app-cart.component';
 import { AppCheckoutSuccessComponent } from './pages/app-checkout-success/app-checkout-success.component';
+
+// Routes
+import { routes } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -41,16 +43,13 @@ import { AppCheckoutSuccessComponent } from './pages/app-checkout-success/app-ch
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(firebaseConfig),
     MaterialModule.forRoot(),
     FlexLayoutModule,
     RouterModule.forRoot(routes),
     InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1500 })
   ],
-  // providers: [AppFirebaseService, {provide: Http, useClass: AppFirebaseHttpService, deps: [XHRBackend, RequestOptions]}],
-  providers: [AppFirebaseService, AppProductService],
+  providers: [AppProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
