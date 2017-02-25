@@ -6,10 +6,12 @@ import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
+import { AppProductCardComponent } from './shared/components/app-product-card/app-product-card.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppProductCardComponent
   ],
   imports: [
     BrowserModule,
