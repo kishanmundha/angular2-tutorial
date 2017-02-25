@@ -5,12 +5,15 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { AppPipes } from './shared/pipes';
+
 import { AppComponent } from './app.component';
 import { AppProductCardComponent } from './shared/components/app-product-card/app-product-card.component';
 import { AppHomeComponent } from './pages/app-home/app-home.component';
 
 @NgModule({
   declarations: [
+    ...AppPipes,
     AppComponent,
     AppProductCardComponent,
     AppHomeComponent

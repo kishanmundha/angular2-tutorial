@@ -1,5 +1,27 @@
+<md-card id="filter-card">
+  <md-card-content>
+    <div class="pull-right">
+      <md-input-container>
+        <input md-input placeholder="Search" [(ngModel)]="search" />
+      </md-input-container>
+      <md-select id="sort" placeholder="Sort by" [(ngModel)]="sort">
+        <md-option value="name">
+          Name
+        </md-option>
+        <md-option value="price">
+          Price - Low to high
+        </md-option>
+        <md-option value="-price">
+          Price - High to low
+        </md-option>
+      </md-select>
+    </div>
+    <div class="clearfix"></div>
+  </md-card-content>
+</md-card>
+
 <div fxLayout="row" fxLayoutWrap fxLayout.xs="column">
-  <div class="flex-item" fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33.33%" *ngFor="let product of products">
+  <div class="flex-item" fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33.33%" *ngFor="let product of products | filter:'name':search | orderBy:sort">
     <app-product-card [product]="product"></app-product-card>
   </div>
 </div>

@@ -26,6 +26,9 @@ export class AppHomeComponent implements OnInit {
     price: 20
   }];
 
+  sort = 'name';
+  search = '';
+
   constructor() { }
 
   ngOnInit() {
