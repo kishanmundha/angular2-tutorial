@@ -9,8 +9,12 @@ import {
 } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 export class AppHttpService extends Http {
+
+    private requestCount = 0;
+    public isLoading$ = new BehaviorSubject<boolean>(false);
 
     constructor(backend: ConnectionBackend, defaultOptions: RequestOptions) {
         super(backend, defaultOptions);
@@ -104,12 +108,16 @@ export class AppHttpService extends Http {
      * Request interceptor.
      */
     private requestInterceptor(): void {
+        this.requestCount++;
+        this.isLoading$.next(true);
     }
 
     /**
      * Response interceptor.
      */
     private responseInterceptor(): void {
+        this.requestCount--;
+        this.isLoading$.next(this.requestCount !== 0);
     }
 
     /**
