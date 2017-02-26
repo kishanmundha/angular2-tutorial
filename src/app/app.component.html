@@ -1,5 +1,13 @@
 <md-toolbar color="primary">
-  <a md-button><span>Demo app</span></a>
+  <div style="flex: auto">
+    <a md-button><span>Demo app</span></a>
+  </div>
+  <a md-button style="width:3rem; padding-right: 10px;" *ngIf="cartItemCount">
+    <div>
+      <i style="float:right; margin-top: 5px;" class="material-icons">add_shopping_cart</i>
+      <span>{{cartItemCount}}</span>
+    </div>
+  </a>
 </md-toolbar>
 
 <app-home></app-home>
