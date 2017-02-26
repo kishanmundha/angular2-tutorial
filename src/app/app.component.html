@@ -1,6 +1,6 @@
 <md-toolbar color="primary">
   <div style="flex: auto">
-    <a md-button><span>Demo app</span></a>
+    <a md-button routerLink="./"><span>Demo app</span></a>
   </div>
   <a md-button style="width:3rem; padding-right: 10px;" routerLink="cart" *ngIf="cartItemCount">
     <div>
@@ -10,6 +10,6 @@
   </a>
 </md-toolbar>
 
-<app-home></app-home>
+<router-outlet></router-outlet>
 
 <app-loading #loading></app-loading>
