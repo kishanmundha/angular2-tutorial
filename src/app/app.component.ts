@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Http } from '@angular/http';
 
 import { AppHttpService } from './shared/services/app-http.service';
+import { AppProductService } from './shared/services/app-product.service';
 
 import { AppLoadingComponent } from './shared/components/app-loading/app-loading.component';
 
@@ -13,7 +14,9 @@ import { AppLoadingComponent } from './shared/components/app-loading/app-loading
 export class AppComponent implements OnInit {
   @ViewChild(AppLoadingComponent) loader: AppLoadingComponent;
 
-  constructor(private http: Http) {
+  cartItemCount: number;
+
+  constructor(private http: Http, private appProductService: AppProductService) {
   }
 
   ngOnInit() {
@@ -24,5 +27,7 @@ export class AppComponent implements OnInit {
         this.loader.hide();
       }
     });
+
+    this.appProductService.cartItemCount$.subscribe(count => this.cartItemCount = count);
   }
 }

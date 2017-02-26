@@ -7,4 +7,7 @@
       {{product.price | currency:'INR':true}}
     </p>
   </md-card-content>
+  <md-card-actions>
+    <a md-button (click)="addToCart(product.id, product.name)">Add to cart</a>
+  </md-card-actions>
 </md-card>
