@@ -20,7 +20,7 @@
   </md-card-content>
 </md-card>
 
-<div fxLayout="row" fxLayoutWrap fxLayout.xs="column">
+<div fxLayout="row" fxLayoutWrap fxLayout.xs="column" *ngIf="dataLoaded" [@dataLoaded]>
   <div class="flex-item" fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33.33%" *ngFor="let product of products | filter:'name':search | orderBy:sort">
     <app-product-card [product]="product"></app-product-card>
   </div>
