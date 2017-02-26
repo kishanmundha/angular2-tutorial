@@ -24,6 +24,8 @@ import { AppHomeComponent } from './pages/app-home/app-home.component';
 import { AppLoadingComponent } from './shared/components/app-loading/app-loading.component';
 import { AppCartComponent } from './pages/app-cart/app-cart.component';
 import { AppNotFoundComponent } from './pages/app-not-found/app-not-found.component';
+import { AppCheckoutComponent } from './pages/app-checkout/app-checkout.component';
+import { AppCheckoutSuccessComponent } from './pages/app-checkout-success/app-checkout-success.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { AppNotFoundComponent } from './pages/app-not-found/app-not-found.compon
     AppHomeComponent,
     AppLoadingComponent,
     AppCartComponent,
-    AppNotFoundComponent
+    AppNotFoundComponent,
+    AppCheckoutComponent,
+    AppCheckoutSuccessComponent
   ],
   imports: [
     BrowserModule,
