@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 import { UserInfoCheckout } from '../../shared/interfaces';
 
@@ -12,7 +13,11 @@ import { AppProductService } from '../../shared/services/app-product.service';
 })
 export class AppCheckoutComponent implements OnInit {
 
+  @ViewChild(NgForm) checkoutForm: NgForm;
+
   userInfo: UserInfoCheckout = <UserInfoCheckout>{};
+
+  formSubmitBtnTouched = false;
 
   constructor(private router: Router, private appProductService: AppProductService) { }
 
@@ -20,6 +25,11 @@ export class AppCheckoutComponent implements OnInit {
   }
 
   checkout() {
+    this.formSubmitBtnTouched = true;
+    if (this.checkoutForm.invalid) {
+      return;
+    }
+
     this.appProductService.clearCart();
     this.router.navigate(['/checkout/success']);
   }

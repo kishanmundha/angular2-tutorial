@@ -1,3 +1,11 @@
 .color-gray {
     color: gray;
 }
+
+md-hint {
+    color:red;
+}
+
+md-select + md-hint {
+    position: relative;
+}

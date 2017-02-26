@@ -1,5 +1,5 @@
 <md-card>
-  <form (submit)="checkout()">
+  <form novalidate name="checkoutForm" #checkoutForm="ngForm" (submit)="checkout()">
     <div class="color-gray">
       <h3>
         {{userInfo.fullName || 'Demo User'}}
@@ -10,23 +10,51 @@
     </div>
     <p>
       <md-input-container class="input-full-width">
-        <input md-input placeholder="Full name" [(ngModel)]="userInfo.fullName" name="fullName" />
+        <input md-input placeholder="Full name" [(ngModel)]="userInfo.fullName" name="fullName" #fullName="ngModel" required />
+        <md-hint *ngIf="fullName.errors && (fullName.touched || formSubmitBtnTouched)">
+          <div [hidden]="!fullName.errors.required">
+            Name is required
+          </div>
+        </md-hint>
       </md-input-container>
     </p>
     <p>
       <md-input-container class="input-full-width">
-        <input md-input placeholder="Mobile" [(ngModel)]="userInfo.mobile" name="mobile" />
+        <input md-input placeholder="Mobile" [(ngModel)]="userInfo.mobile" name="mobile" #mobile="ngModel" required pattern="^\+?[0-9][0-9 \-]+[0-9]$"
+          maxlength="16" minlength="10" />
+        <md-hint *ngIf="mobile.errors && (mobile.touched || formSubmitBtnTouched)">
+          <div [hidden]="!mobile.errors.required">
+            Mobile is required
+          </div>
+          <div [hidden]="!mobile.errors.pattern && !mobile.errors.maxlength && !mobile.errors.minlength">
+            Please enter correct mobile.
+          </div>
+        </md-hint>
       </md-input-container>
     </p>
     <p>
       <md-input-container class="input-full-width">
-        <input type="email" md-input placeholder="Email (Optional)" [(ngModel)]="userInfo.email" name="email" />
+        <input type="email" md-input placeholder="Email (Optional)" [(ngModel)]="userInfo.email" name="email" #email="ngModel" pattern="^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$"
+        />
+        <md-hint *ngIf="email.errors && (email.touched || formSubmitBtnTouched)">
+          <div [hidden]="!email.errors.pattern">
+            Please enter correct email.
+          </div>
+        </md-hint>
       </md-input-container>
     </p>
 
     <p>
       <md-input-container class="input-full-width">
-        <textarea md-input placeholder="Address" [(ngModel)]="userInfo.address" name="address"></textarea>
+        <textarea md-input placeholder="Address" [(ngModel)]="userInfo.address" name="address" #address="ngModel" required minlength="10"></textarea>
+        <md-hint *ngIf="address.errors && (address.touched || formSubmitBtnTouched)">
+          <div [hidden]="!address.errors.required">
+            Address is required
+          </div>
+          <div [hidden]="!address.errors.minlength">
+            Please enter correct address.
+          </div>
+        </md-hint>
       </md-input-container>
       <md-input-container class="input-full-width">
         <textarea md-input placeholder="Address 2" [(ngModel)]="userInfo.address2" name="address2"></textarea>
@@ -36,7 +64,7 @@
     <table class="input-full-width" cellspacing="0">
       <tr>
         <td style="width:30%">
-          <md-select placeholder="City" [(ngModel)]="userInfo.city" name="city">
+          <md-select placeholder="City" [(ngModel)]="userInfo.city" name="city" #city="ngModel" required>
             <md-option value="Ahmedabad">
               Ahmedabad
             </md-option>
@@ -44,17 +72,36 @@
               Gandhinagar
             </md-option>
           </md-select>
+          <md-hint *ngIf="city.errors && (city.touched || formSubmitBtnTouched)">
+            <div [hidden]="!city.errors.required">
+              City is required
+            </div>
+          </md-hint>
         </td>
         <td style="width:30%">
-          <md-select placeholder="State" [(ngModel)]="userInfo.state" name="state">
+          <md-select placeholder="State" [(ngModel)]="userInfo.state" name="state" #state="ngModel" required>
             <md-option value="Gujrat">
               Gujrat
             </md-option>
           </md-select>
+          <md-hint *ngIf="state.errors && (state.touched || formSubmitBtnTouched)">
+            <div [hidden]="!state.errors.required">
+              State is required
+            </div>
+          </md-hint>
         </td>
         <td style="width:30%">
           <md-input-container class="input-full-width">
-            <input md-input placeholder="Postal Code" [(ngModel)]="userInfo.pincode" name="pincode">
+            <input md-input placeholder="Postal Code" [(ngModel)]="userInfo.pincode" name="pincode" #pincode="ngModel" required minlength="6"
+              maxlength="6" pattern="[0-9]{6}">
+              <md-hint *ngIf="pincode.errors && (pincode.touched || formSubmitBtnTouched)">
+                <div [hidden]="!pincode.errors.required">
+                  Pincode is required
+                </div>
+                <div [hidden]="!pincode.errors.minlength && !pincode.errors.maxlength &&!pincode.errors.pattern">
+                  Please enter correct pincode.
+                </div>
+              </md-hint>
           </md-input-container>
         </td>
       </tr>
@@ -62,7 +109,7 @@
     <br/>
 
     <p class="pull-right">
-      <button md-button md-raised-button>Checkout</button>
+      <button md-button md-raised-button [disabled]="formSubmitBtnTouched && checkoutForm.invalid">Checkout</button>
     </p>
 
     <div class="clearfix"></div>
