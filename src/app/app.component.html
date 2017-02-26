@@ -3,7 +3,7 @@
     <a md-button routerLink="./"><span>Demo app</span></a>
     <a md-button routerLink="feedback">Feedback</a>
   </div>
-  <a md-button style="width:3rem; padding-right: 10px;" routerLink="cart" *ngIf="cartItemCount">
+  <a md-button style="width:3rem; padding-right: 10px;" routerLink="cart" *ngIf="cartItemCount" [@cartIn]>
     <div>
       <i style="float:right; margin-top: 5px;" class="material-icons">add_shopping_cart</i>
       <span>{{cartItemCount}}</span>
