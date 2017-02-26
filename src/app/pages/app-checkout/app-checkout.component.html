@@ -1,0 +1,70 @@
+<md-card>
+  <form (submit)="checkout()">
+    <div class="color-gray">
+      <h3>
+        {{userInfo.fullName || 'Demo User'}}
+      </h3>
+      <p>
+        Please fill below information to checkout
+      </p>
+    </div>
+    <p>
+      <md-input-container class="input-full-width">
+        <input md-input placeholder="Full name" [(ngModel)]="userInfo.fullName" name="fullName" />
+      </md-input-container>
+    </p>
+    <p>
+      <md-input-container class="input-full-width">
+        <input md-input placeholder="Mobile" [(ngModel)]="userInfo.mobile" name="mobile" />
+      </md-input-container>
+    </p>
+    <p>
+      <md-input-container class="input-full-width">
+        <input type="email" md-input placeholder="Email (Optional)" [(ngModel)]="userInfo.email" name="email" />
+      </md-input-container>
+    </p>
+
+    <p>
+      <md-input-container class="input-full-width">
+        <textarea md-input placeholder="Address" [(ngModel)]="userInfo.address" name="address"></textarea>
+      </md-input-container>
+      <md-input-container class="input-full-width">
+        <textarea md-input placeholder="Address 2" [(ngModel)]="userInfo.address2" name="address2"></textarea>
+      </md-input-container>
+    </p>
+
+    <table class="input-full-width" cellspacing="0">
+      <tr>
+        <td style="width:30%">
+          <md-select placeholder="City" [(ngModel)]="userInfo.city" name="city">
+            <md-option value="Ahmedabad">
+              Ahmedabad
+            </md-option>
+            <md-option value="Gandhinagar">
+              Gandhinagar
+            </md-option>
+          </md-select>
+        </td>
+        <td style="width:30%">
+          <md-select placeholder="State" [(ngModel)]="userInfo.state" name="state">
+            <md-option value="Gujrat">
+              Gujrat
+            </md-option>
+          </md-select>
+        </td>
+        <td style="width:30%">
+          <md-input-container class="input-full-width">
+            <input md-input placeholder="Postal Code" [(ngModel)]="userInfo.pincode" name="pincode">
+          </md-input-container>
+        </td>
+      </tr>
+    </table>
+    <br/>
+
+    <p class="pull-right">
+      <button md-button md-raised-button>Checkout</button>
+    </p>
+
+    <div class="clearfix"></div>
+  </form>
+</md-card>
