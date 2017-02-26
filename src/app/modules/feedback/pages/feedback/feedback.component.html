@@ -1,0 +1,59 @@
+<md-card>
+  <form novalidate name="feedbackForm" #feedbackForm="ngForm" (submit)="sendFeedback()">
+    <p>
+      <md-input-container class="input-full-width">
+        <input md-input placeholder="Full name" required [(ngModel)]="userInfo.fullName" name="fullName" #fullName="ngModel" />
+        <md-hint *ngIf="fullName.errors && (fullName.touched || formSubmitBtnTouched)">
+          <div [hidden]="!fullName.errors.required">
+            Name is required
+          </div>
+        </md-hint>
+      </md-input-container>
+    </p>
+    <p>
+      <md-input-container class="input-full-width">
+        <input md-input placeholder="Mobile" [(ngModel)]="userInfo.mobile" name="mobile" #mobile="ngModel" required pattern="^\+?[0-9][0-9 \-]+[0-9]$"
+          maxlength="16" minlength="10" />
+        <md-hint *ngIf="mobile.errors && (mobile.touched || formSubmitBtnTouched)">
+          <div [hidden]="!mobile.errors.required">
+            Mobile is required
+          </div>
+          <div [hidden]="!mobile.errors.pattern && !mobile.errors.maxlength && !mobile.errors.minlength">
+            Please enter correct mobile.
+          </div>
+        </md-hint>
+      </md-input-container>
+    </p>
+    <p>
+      <md-input-container class="input-full-width">
+        <input type="email" md-input placeholder="Email" [(ngModel)]="userInfo.email" name="email" #email="ngModel" required pattern="^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$"
+        />
+        <md-hint *ngIf="email.errors && (email.touched || formSubmitBtnTouched)">
+          <div [hidden]="!email.errors.required">
+            Email is required
+          </div>
+          <div [hidden]="!email.errors.pattern">
+            Please enter correct email.
+          </div>
+        </md-hint>
+      </md-input-container>
+    </p>
+    <p>
+      <md-input-container class="input-full-width">
+        <textarea md-input placeholder="Feedback" [(ngModel)]="userInfo.feedback" name="feedback" #feedback="ngModel" required></textarea>
+        <md-hint *ngIf="feedback.errors && (feedback.touched || formSubmitBtnTouched)">
+          <div [hidden]="!feedback.errors.required">
+            Feedback is required
+          </div>
+        </md-hint>
+      </md-input-container>
+    </p>
+
+    <br/>
+    <p class="pull-right">
+      <button md-button md-raised-button [disabled]="formSubmitBtnTouched && feedbackForm.invalid">Send Feedback</button>
+    </p>
+
+    <div class="clearfix"></div>
+  </form>
+</md-card>
