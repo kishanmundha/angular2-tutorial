@@ -1,4 +1,6 @@
+<div class="overlay overlay-back" [style.visibility]="visibility">
+</div>
 <div class="overlay" [style.visibility]="visibility">
-    <md-progress-circle color="white" mode="indeterminate">
-    </md-progress-circle>
-  </div>
+  <md-progress-circle mode="indeterminate" *ngIf="visibility=='visible'">
+  </md-progress-circle>
+</div>
