@@ -11,5 +11,6 @@ export const routes: Routes = [
   { path: 'cart', component: AppCartComponent },
   { path: 'checkout', component: AppCheckoutComponent },
   { path: 'checkout/success', component: AppCheckoutSuccessComponent },
+  { path: 'feedback', loadChildren: './modules/feedback/feedback.module#FeedbackModule'},
   { path: '**', component: AppNotFoundComponent }
 ];
