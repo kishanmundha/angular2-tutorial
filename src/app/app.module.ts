@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -10,7 +10,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 // services
-import { AppProductService, InMemoryDataService } from './shared/services';
+import { AppProductService, InMemoryDataService, AppHttpService } from './shared/services';
 
 import { AppPipes } from './shared/pipes';
 
@@ -33,7 +33,7 @@ import { AppHomeComponent } from './pages/app-home/app-home.component';
     FlexLayoutModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1500 })
   ],
-  providers: [AppProductService],
+  providers: [AppProductService, {provide: Http, useClass: AppHttpService, deps: [XHRBackend, RequestOptions]}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
