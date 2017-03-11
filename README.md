@@ -1,31 +1,36 @@
-# Angular2Tutorial
+# Angular2 Tutorial
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.26.
+This project was generated with [@angular/cli](https://github.com/angular/angular-cli)
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## View demo and docs
 
-## Code scaffolding
+Docs for this tutorial avaialble at https://kishan-mundha.firebaseapp.com/docs/angular2-tutorial/demo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+## Locally run
 
-## Build
+### Clone repository
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+```sh
+$ git clone https://github.com/kishanmundha/angular2-tutorial.git
+cd angular2-tutorial
+```
 
-## Running unit tests
+### Install npm package
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```sh
+$ npm install
+```
 
-## Running end-to-end tests
+### Start app
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+```sh
+$ npm start
+```
 
-## Deploying to GitHub Pages
+## Step by step test app
 
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
+Just switch branch to tag `step-{xx}` and run app.
 
-## Further help
+## Screenshot app
 
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![angular2-tutorial](https://firebasestorage.googleapis.com/v0/b/kishan-mundha.appspot.com/o/images%2Fscreencapture-kishan-mundha-firebaseapp-angular2-tutorial-step-15-1488182641097.png?alt=media)
